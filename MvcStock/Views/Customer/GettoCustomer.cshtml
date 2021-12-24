@@ -1,0 +1,27 @@
+﻿@model MvcStock.Models.Entity.TblCustomer
+@{
+    ViewBag.Title = "GettoCustomer";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+@using(Html.BeginForm("Update","Customer",FormMethod.Post))
+            {
+<div class="form-group">
+    @Html.LabelFor(m => m.customerId)
+    @Html.TextBoxFor(m => m.customerId, new { @class = "form-control" })
+    <br />
+
+    @Html.LabelFor(m => m.customerName)
+    @Html.TextBoxFor(m => m.customerName, new { @class = "form-control" })
+    <br />
+
+    @Html.LabelFor(m => m.customerSurname)
+    @Html.TextBoxFor(m => m.customerSurname, new { @class = "form-control" })
+    <br />
+</div>
+
+<div>
+    <button class="btn btn-warning">Update Customer</button>
+</div>
+            }
+

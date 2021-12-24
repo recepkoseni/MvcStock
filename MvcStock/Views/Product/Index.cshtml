@@ -1,0 +1,53 @@
+﻿
+@using MvcStock.Models.Entity
+@model List<TblProduct>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<table id="tbl1" class="table table-bordered">
+    <thead>
+
+        <tr>
+            <th>Product ID</th>
+            <th>Product Name</th>
+            <th>Product Brand</th>
+            <th>Category</th>
+            <th>Product</th>
+            <th>Stock</th>
+            <th>DELETE</th>
+            <th>UPDATE</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var prdct in Model)
+        {
+            <tr>
+                <th>@prdct.productId</th>
+                <td>@prdct.productName</td>
+                <td>@prdct.brand</td>
+                <td>@prdct.TblCategory.categoryName</td>
+                <td>@prdct.price</td>
+                <td>@prdct.stock</td>
+                <td>
+                    <a href="/Product/Delete/@prdct.productId
+                           " class="btn btn-danger">DELETE</a>
+                </td>
+                <td><a href="/Product/GettoProduct/@prdct.productId" class="btn btn-success">UPDATE</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="/Product/AddProduct/" class="btn btn-primary">Add to New Product </a>
+
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+
+<link href="~/Content/DataTables/css/dataTables.bootstrap4.css" rel="stylesheet" />
+
+<script>
+    $('#tbl1').DataTable();
+</script>
+

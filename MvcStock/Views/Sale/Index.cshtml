@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<table class="table table-bordered">
+
+    <tr>
+        <th>Sales ID</th>
+        <th>product</th>
+        <th>customer</th>
+        <th>piece</th>
+        <th>price</th>
+        <th>DELETE</th>
+        <th>UPDATE</th>
+
+    </tr>
+
+    <tbody>
+        @foreach (var sal in Model)
+        {
+        <tr>
+            <th>@sal.salesId</th>
+            <td>@sal.product</td>
+            <td>@sal.customer</td>
+            <td>@sal.piece</td>
+            <td>@sal.price</td>
+            <td>
+                <a href="/Category/Delete/@sal.salesid
+                           " class="btn btn-danger">DELETE</a>
+            </td>
+            <td><a href="/Catogery/Update/@sal.salesid" class="btn btn-success">UPDATE</a></td>
+
+        </tr>
+        }
+    </tbody>
+</table>
+<a href="/Category/NewCategory/" class="btn btn-primary">Add to New Sale </a>
+
